@@ -51,14 +51,16 @@ const TitleBar=({page,style,up})=>{
            { page==="clientPage"?(<div id="titlebarclientcontainer">
             <div id="clienttabs" class="tabcontainer">
                 <Link to="/studentprofile" class="tab">profile</Link>
-                <Link to="/search" class="tab">Search For Bus</Link>
-                
+                <Link to="/search" class="tab">Search For Projects</Link>
+                <Link to="/proposalRequest" class="tab">Proposal Request</Link>
             </div>
             <img src="./pics_icons/profilepic.jpg" id="titlebarimg" onClick={titleImgClick}/>
             </div>):null}
             { page==="workerPage"?(<div id="titlebarclientcontainer">
             <div id="clienttabs" class="tabcontainer">
                 <Link to="/studentprofile" class="tab">profile</Link>
+                <Link to="/search" class="tab">Search For Projects</Link>
+                <Link to="/proposalRequest" class="tab">Proposal Request</Link>
                 
                
             </div>

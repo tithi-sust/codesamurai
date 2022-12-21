@@ -17,7 +17,7 @@ import axios from "axios";
     const [profilepic,setProfilePic]=useState("./pics_icons/profilepic.jpg")
     const [name,setName]=useState("Tithi Saha")
     const [location,setLocation]=useState({"latitude":100,"longitude":100,"location":"Madina Market, Sylhet"})
-    const [batchno,setBatchNo]=useState(" 2018-19")
+    const [userType,setuserType]=useState("Ministry of Planning")
     const [section,setSection]=useState(" B")
     
     const [Educations,setEducations]=useState([{institute:"Notre Dame College, Dhaka",
@@ -64,7 +64,7 @@ let info_component;
             setName(data.basic_info.name)
             setLocation({"latitude":data.basic_info.latitude,"longitude":data.basic_info.longitude,"location":data.basic_info.location_name})
             //setPhoneNo(data.basic_info.phone_no)
-            setBatchNo(data.batch_no)
+            setuserType(data.user_type)
             if(data.basic_info.profile_pic)
                 setProfilePic("http://localhost:3001/"+data.basic_info.profile_pic);
             else
@@ -97,15 +97,11 @@ let info_component;
                         </div>:null}
                         
                         <div id="phoneno">
-                        <font id="profiletxt">Batch Number:</font>
-                            {batchno}
+                        <font id="profiletxt"></font>
+                            {userType}
                             <img id="phonenoediticon" src="./pics_icons/edit.png" class="pointer" onClick={showSetPhoneModal}/>
                         </div>
-                        <div id="phoneno">
-                        <font id="profiletxt">Section:</font>
-                            {section}
-                            <img id="phonenoediticon" src="./pics_icons/edit.png" class="pointer" onClick={showSetPhoneModal}/>
-                        </div>
+                        
                     </div>
                     <div id="buttondiv">
                     </div>
@@ -116,7 +112,7 @@ let info_component;
             
             <UserNameModal name={name} setName={setName}/>
             <UserLocationModal setLocation={setLocation}/>
-            <UserPhoneModal phoneNo={batchno} setPhoneNo={setBatchNo}/>
+            <UserPhoneModal phoneNo={userType} setPhoneNo={setuserType}/>
             <ProfilePicUploadModal profilePic={profilepic} setProfilePic={setProfilePic}/>
             <EducaionModal Educations={Educations} setEducations={setEducations}/>
         </div>
